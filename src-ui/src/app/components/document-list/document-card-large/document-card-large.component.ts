@@ -1,17 +1,22 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { fadeAnimation } from 'src/app/animations';
 import { PaperlessDocument } from 'src/app/data/paperless-document';
-import { PaperlessTag } from 'src/app/data/paperless-tag';
 import { DocumentService } from 'src/app/services/rest/document.service';
 
 @Component({
   selector: 'app-document-card-large',
   templateUrl: './document-card-large.component.html',
-  styleUrls: ['./document-card-large.component.scss']
+  styleUrls: ['./document-card-large.component.scss'],
+  animations: [
+    fadeAnimation
+  ]
 })
 export class DocumentCardLargeComponent implements OnInit {
 
   constructor(private documentService: DocumentService, private sanitizer: DomSanitizer) { }
+
+  imageLoaded = false
 
   @Input()
   document: PaperlessDocument

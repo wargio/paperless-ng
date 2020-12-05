@@ -1,6 +1,8 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { fadeAnimation } from 'src/app/animations';
 import { cloneFilterRules, FilterRule } from 'src/app/data/filter-rule';
 import { FILTER_CORRESPONDENT, FILTER_DOCUMENT_TYPE, FILTER_HAS_TAG, FILTER_RULE_TYPES } from 'src/app/data/filter-rule-type';
 import { SavedViewConfig } from 'src/app/data/saved-view-config';
@@ -13,7 +15,10 @@ import { SaveViewConfigDialogComponent } from './save-view-config-dialog/save-vi
 @Component({
   selector: 'app-document-list',
   templateUrl: './document-list.component.html',
-  styleUrls: ['./document-list.component.scss']
+  styleUrls: ['./document-list.component.scss'],
+  animations: [
+    fadeAnimation
+  ]
 })
 export class DocumentListComponent implements OnInit {
 

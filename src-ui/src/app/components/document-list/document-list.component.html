@@ -124,6 +124,6 @@
 </table>
 
 
-<div class=" m-n2 row" *ngIf="displayMode == 'smallCards'">
+<div [@fade]="list.isReloading ? 'invisible' : 'visible'" class=" m-n2 row" *ngIf="displayMode == 'smallCards'">
   <app-document-card-small [document]="d" *ngFor="let d of list.documents" (clickTag)="filterByTag($event)" (clickCorrespondent)="filterByCorrespondent($event)"></app-document-card-small>    
 </div>
