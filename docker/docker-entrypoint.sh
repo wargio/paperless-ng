@@ -57,14 +57,8 @@ migrations() {
 		wait_for_postgres
 	fi
 
-	(
-		# flock is in place to prevent multiple containers from doing migrations
-		# simultaneously. This also ensures that the db is ready when the command
-		# of the current container starts.
-		flock 200
-		echo "Apply database migrations..."
-		sudo -HEu paperless python3 manage.py migrate
-	)  200>/usr/src/paperless/data/migration_lock
+	echo "Apply database migrations..."
+	sudo -HEu paperless python3 manage.py migrate
 
 }
 
