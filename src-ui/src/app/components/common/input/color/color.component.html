@@ -1,0 +1,8 @@
+<div class="form-group">
+  <label [for]="inputId">{{title}}</label>
+  <input #inputField class="form-control" [class.is-invalid]="error" [id]="inputId" [(colorPicker)]="value" (colorPickerChange)="onChange(value)" [value]="value" [cpAlphaChannel]="'disabled'">
+  <small *ngIf="hint" class="form-text text-muted">{{hint}}</small>
+  <div class="invalid-feedback">
+    {{error}}
+  </div>
+</div>

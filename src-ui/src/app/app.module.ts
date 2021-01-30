@@ -64,6 +64,8 @@ import { CustomDatePipe } from './pipes/custom-date.pipe';
 import localeFr from '@angular/common/locales/fr';
 import localeNl from '@angular/common/locales/nl';
 import localeDe from '@angular/common/locales/de';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { ColorComponent } from './components/common/input/color/color.component';
 
 registerLocaleData(localeFr)
 registerLocaleData(localeNl)
@@ -118,7 +120,8 @@ registerLocaleData(localeDe)
     SelectDialogComponent,
     NumberComponent,
     SafePipe,
-    CustomDatePipe
+    CustomDatePipe,
+    ColorComponent
   ],
   imports: [
     BrowserModule,
@@ -130,7 +133,8 @@ registerLocaleData(localeDe)
     NgxFileDropModule,
     InfiniteScrollModule,
     PdfViewerModule,
-    NgSelectModule
+    NgSelectModule,
+    ColorPickerModule
   ],
   providers: [
     DatePipe,

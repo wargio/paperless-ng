@@ -1,2 +1,2 @@
-<span *ngIf="!clickable" class="badge" [style.background]="getColour().value" [style.color]="getColour().textColor">{{tag.name}}</span>
-<a [routerLink]="" [title]="linkTitle" *ngIf="clickable" class="badge" [style.background]="getColour().value" [style.color]="getColour().textColor">{{tag.name}}</a>
+<span *ngIf="!clickable" class="badge" [style.background]="tag.colour_code" [style.color]="'#121212'">{{tag.name}}</span>
+<a [routerLink]="" [title]="linkTitle" *ngIf="clickable" class="badge" [style.background]="tag.colour_code" [style.color]="'#121212'">{{tag.name}}</a>

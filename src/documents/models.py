@@ -78,7 +78,7 @@ class Correspondent(MatchingModel):
 
 class Tag(MatchingModel):
 
-    COLOURS = (
+    COLOURS = [
         (1, "#a6cee3"),
         (2, "#1f78b4"),
         (3, "#b2df8a"),
@@ -92,11 +92,22 @@ class Tag(MatchingModel):
         (11, "#b15928"),
         (12, "#000000"),
         (13, "#cccccc")
-    )
+    ]
 
-    colour = models.PositiveIntegerField(
-        _("color"),
-        choices=COLOURS, default=1)
+    @property
+    def colour(self):
+        options = list(filter((lambda c: c[1] == self.colour_code), Tag.COLOURS))
+        if len(options) == 1:
+            return options[0][0]
+        else:
+            return 1
+
+    colour_code = models.CharField(
+        max_length=9,
+        default="#a6cee3",
+        null=False,
+        blank=False
+    )
 
     is_inbox_tag = models.BooleanField(
         _("is inbox tag"),

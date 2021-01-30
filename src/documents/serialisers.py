@@ -91,6 +91,7 @@ class TagSerializer(serializers.ModelSerializer):
             "slug",
             "name",
             "colour",
+            "colour_code",
             "match",
             "matching_algorithm",
             "is_insensitive",

@@ -20,7 +20,7 @@ export const TAG_COLOURS = [
 
 export interface PaperlessTag extends MatchingModel {
 
-    colour?: number
+    colour_code?: string
 
     is_inbox_tag?: boolean
 

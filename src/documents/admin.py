@@ -27,8 +27,8 @@ class TagAdmin(admin.ModelAdmin):
         "match",
         "matching_algorithm"
     )
-    list_filter = ("colour", "matching_algorithm")
-    list_editable = ("colour", "match", "matching_algorithm")
+    list_filter = ("matching_algorithm",)
+    list_editable = ("match", "matching_algorithm")
 
 
 class DocumentTypeAdmin(admin.ModelAdmin):

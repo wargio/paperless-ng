@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from .factories import DocumentFactory, CorrespondentFactory
-from ..models import Document, Correspondent
+from ..models import Document, Correspondent, Tag
 
 
 class CorrespondentTestCase(TestCase):
@@ -29,3 +29,12 @@ class DocumentTestCase(TestCase):
         self.assertEqual(Correspondent.objects.all().count(), 0)
         self.assertEqual(Document.objects.all().count(), 1)
         self.assertIsNone(Document.objects.all().first().correspondent)
+
+
+class TagTestCase(TestCase):
+
+    def test_color(self):
+
+        tag = Tag.objects.create(name="x", color_code="#ff7f00")
+
+        self.assertEquals(tag.colour, 8)

@@ -28,20 +28,12 @@ export class TagEditDialogComponent extends EditDialogComponent<PaperlessTag> {
   getForm(): FormGroup {
     return new FormGroup({
       name: new FormControl(''),
-      colour: new FormControl(1),
+      colour_code: new FormControl("#a6cee3"),
       is_inbox_tag: new FormControl(false),
       matching_algorithm: new FormControl(1),
       match: new FormControl(""),
       is_insensitive: new FormControl(true)
     })
-  }
-
-  getColours() {
-    return TAG_COLOURS
-  }
-
-  getColor(id: number) {
-    return TAG_COLOURS.find(c => c.id == id)
   }
 
 }

@@ -22,8 +22,4 @@ export class TagComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getColour() {
-    return TAG_COLOURS.find(c => c.id == this.tag.colour)
-  }
-
 }
