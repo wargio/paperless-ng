@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiBaseUrl: "/api/",
+  apiBaseUrl: "/paperless/api/",
   appTitle: "Paperless-ng",
   version: "1.0.0"
 };

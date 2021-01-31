@@ -10,9 +10,7 @@ from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
 
 # Tap paperless.conf if it's available
-if os.path.exists("../paperless.conf"):
-    load_dotenv("../paperless.conf")
-elif os.path.exists("/etc/paperless.conf"):
+if os.path.exists("/etc/paperless.conf"):
     load_dotenv("/etc/paperless.conf")
 elif os.path.exists("/usr/local/etc/paperless.conf"):
     load_dotenv("/usr/local/etc/paperless.conf")
@@ -134,7 +132,9 @@ FORCE_SCRIPT_NAME = os.getenv("PAPERLESS_FORCE_SCRIPT_NAME")
 
 WSGI_APPLICATION = 'paperless.wsgi.application'
 
-STATIC_URL = os.getenv("PAPERLESS_STATIC_URL", "/static/")
+STATIC_URL = os.getenv("PAPERLESS_STATIC_URL", "/paperless/static/")
+LOGIN_URL = os.getenv("PAPERLESS_LOGIN_URL", "/accounts/login/")
+
 
 # what is this used for?
 TEMPLATES = [

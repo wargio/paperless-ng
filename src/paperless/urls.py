@@ -36,7 +36,7 @@ api_router.register(r"saved_views", SavedViewViewSet)
 
 
 urlpatterns = [
-    re_path(r"^api/", include([
+    re_path(r"^paperless/api/", include([
         re_path(r"^auth/",
                 include(('rest_framework.urls', 'rest_framework'),
                         namespace="rest_framework")),
@@ -66,38 +66,38 @@ urlpatterns = [
 
     ] + api_router.urls)),
 
-    re_path(r"^favicon.ico$", FaviconView.as_view(), name="favicon"),
+    re_path(r"^paperless/favicon.ico$", FaviconView.as_view(), name="favicon"),
 
-    re_path(r"admin/", admin.site.urls),
+    re_path(r"paperless/admin/", admin.site.urls),
 
-    re_path(r"^fetch/", include([
+    re_path(r"^paperless/fetch/", include([
         re_path(
             r"^doc/(?P<pk>\d+)$",
-            RedirectView.as_view(url='/api/documents/%(pk)s/download/'),
+            RedirectView.as_view(url='/paperless/api/documents/%(pk)s/download/'),
         ),
         re_path(
             r"^thumb/(?P<pk>\d+)$",
-            RedirectView.as_view(url='/api/documents/%(pk)s/thumb/'),
+            RedirectView.as_view(url='/paperless/api/documents/%(pk)s/thumb/'),
         ),
         re_path(
             r"^preview/(?P<pk>\d+)$",
-            RedirectView.as_view(url='/api/documents/%(pk)s/preview/'),
+            RedirectView.as_view(url='/paperless/api/documents/%(pk)s/preview/'),
         ),
     ])),
 
-    re_path(r"^push$", csrf_exempt(
-        RedirectView.as_view(url='/api/documents/post_document/'))),
+    re_path(r"^paperless/push$", csrf_exempt(
+        RedirectView.as_view(url='/paperless/api/documents/post_document/'))),
 
     # Frontend assets TODO: this is pretty bad, but it works.
-    path('assets/<path:path>',
-         RedirectView.as_view(url='/static/frontend/en-US/assets/%(path)s')),
+    path('paperless/assets/<path:path>',
+         RedirectView.as_view(url='/paperless/static/frontend/en-US/assets/%(path)s')),
     # TODO: with localization, this is even worse! :/
 
     # login, logout
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('paperless/accounts/', include('django.contrib.auth.urls')),
 
     # Root of the Frontent
-    re_path(r".*", login_required(IndexView.as_view())),
+    re_path(r"paperless/.*", login_required(IndexView.as_view())),
 ]
 
 # Text in each page's <h1> (and above login form).
